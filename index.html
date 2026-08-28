@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -9,18 +10,30 @@
 
 <style>
 
+/* =====================================================
+   FONTS & VARIABLES
+===================================================== */
+
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap');
 
 :root {
     --lavender: #a98bc8;
     --lavender-dark: #80639f;
     --lavender-light: #d8c5e5;
+
     --text: #514958;
     --muted: #8f8794;
+
     --cream: #fbf7fa;
+
     --card: rgba(255,255,255,0.68);
     --border: rgba(150,120,175,0.22);
 }
+
+
+/* =====================================================
+   RESET
+===================================================== */
 
 * {
     box-sizing: border-box;
@@ -33,115 +46,215 @@ html {
 }
 
 body {
+
     background:
-        radial-gradient(circle at 15% 10%, rgba(196,170,220,0.16), transparent 30%),
-        radial-gradient(circle at 90% 80%, rgba(214,190,225,0.14), transparent 30%),
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(196,170,220,0.16),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(214,190,225,0.14),
+            transparent 30%
+        ),
+
         var(--cream);
 
     color: var(--text);
+
     font-family: "Cormorant Garamond", serif;
+
     min-height: 100vh;
 }
 
 
 /* =====================================================
-   LANDING
+   LANDING PAGE
 ===================================================== */
 
 .landing {
+
     min-height: 100vh;
+
     display: flex;
     flex-direction: column;
+
     align-items: center;
     justify-content: center;
+
     text-align: center;
+
     padding: 40px 25px;
+
     position: relative;
+
     overflow: hidden;
 }
 
+
 .landing::before {
+
     content: "";
+
     position: absolute;
+
     width: 600px;
     height: 600px;
+
     border-radius: 50%;
+
     background: rgba(194,166,220,0.12);
+
     filter: blur(80px);
+
     top: -250px;
     left: -200px;
+
     pointer-events: none;
 }
 
+
 .logo {
+
     font-size: clamp(75px, 18vw, 150px);
+
     font-weight: 400;
+
     letter-spacing: -7px;
+
     line-height: .8;
+
     color: #a78bc5;
+
+    position: relative;
+
+    z-index: 1;
 }
+
 
 .tagline {
+
     margin-top: 20px;
+
     font-size: 15px;
+
     letter-spacing: 4px;
+
     font-style: italic;
+
     color: #625b65;
+
+    position: relative;
+
+    z-index: 1;
 }
 
+
 .divider {
+
     margin: 55px auto 30px;
+
     width: 130px;
+
     height: 1px;
+
     background: #cdb9dc;
+
     position: relative;
 }
 
+
 .divider::after {
+
     content: "✦";
+
     position: absolute;
+
     left: 50%;
     top: 50%;
+
     transform: translate(-50%, -50%);
+
     background: var(--cream);
+
     padding: 0 12px;
+
     color: #ad8cc9;
+
     font-size: 17px;
 }
 
+
 .intro {
+
     font-size: clamp(22px, 5vw, 31px);
+
     line-height: 1.35;
+
     max-width: 550px;
+
     color: #625b65;
+
+    position: relative;
+
+    z-index: 1;
 }
+
 
 .begin {
+
     margin-top: 55px;
+
     width: min(390px, 85vw);
+
     height: 65px;
+
     border-radius: 40px;
+
     border: 1px solid #b99bd1;
+
     background: var(--lavender);
+
     color: white;
+
     font-family: inherit;
+
     font-size: 20px;
+
     letter-spacing: 7px;
+
     cursor: pointer;
+
     transition: .3s;
+
+    position: relative;
+
+    z-index: 1;
 }
 
+
 .begin:hover {
+
     background: var(--lavender-dark);
+
     transform: translateY(-2px);
 }
 
+
 .bottom-tag {
+
     position: absolute;
+
     bottom: 30px;
+
     font-size: 18px;
+
     font-style: italic;
+
     letter-spacing: 3px;
+
     color: #85758e;
 }
 
@@ -151,101 +264,192 @@ body {
 ===================================================== */
 
 #app {
+
     display: none;
+
     min-height: 100vh;
+
     padding-bottom: 100px;
-}
-
-header {
-    height: 72px;
-    padding: 0 28px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid rgba(150,120,175,.12);
-    background: rgba(251,247,250,.82);
-    backdrop-filter: blur(15px);
-    position: sticky;
-    top: 0;
-    z-index: 50;
-}
-
-.menu {
-    font-size: 25px;
-    color: var(--lavender-dark);
-    cursor: pointer;
-    width: 45px;
-}
-
-.header-logo {
-    font-size: 42px;
-    color: #a78bc5;
-    letter-spacing: -4px;
-}
-
-.profile {
-    width: 40px;
-    height: 40px;
-    border: 1px solid #a98bc8;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    font-size: 20px;
-    color: #80639f;
-    cursor: pointer;
 }
 
 
 /* =====================================================
-   PAGES
+   HEADER
+===================================================== */
+
+header {
+
+    height: 72px;
+
+    padding: 0 28px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-bottom: 1px solid rgba(150,120,175,.12);
+
+    background: rgba(251,247,250,.82);
+
+    backdrop-filter: blur(15px);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 50;
+}
+
+
+.menu {
+
+    font-size: 25px;
+
+    color: var(--lavender-dark);
+
+    cursor: pointer;
+
+    width: 45px;
+
+    transition: .2s;
+}
+
+
+.menu:hover {
+
+    transform: scale(1.1);
+}
+
+
+.header-logo {
+
+    font-size: 42px;
+
+    color: #a78bc5;
+
+    letter-spacing: -4px;
+}
+
+
+.profile {
+
+    width: 40px;
+    height: 40px;
+
+    border: 1px solid #a98bc8;
+
+    border-radius: 50%;
+
+    display: grid;
+
+    place-items: center;
+
+    font-size: 20px;
+
+    color: #80639f;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+
+.profile:hover {
+
+    background: var(--lavender);
+
+    color: white;
+}
+
+
+/* =====================================================
+   PAGE SYSTEM
 ===================================================== */
 
 .page {
+
     display: none;
 }
 
+
 .page.active {
+
     display: block;
 }
 
+
 .content {
+
     width: min(1000px, 92%);
+
     margin: auto;
+
     padding-top: 45px;
 }
 
+
+/* =====================================================
+   HEADINGS
+===================================================== */
+
 h1 {
+
     text-align: center;
+
     font-size: clamp(40px, 8vw, 70px);
+
     font-weight: 400;
+
     line-height: 1;
 }
 
+
 h1 em {
+
     color: #a98bc8;
 }
 
+
 .subtitle {
+
     text-align: center;
+
     margin: 20px auto 40px;
+
     font-size: 20px;
+
     max-width: 650px;
+
     line-height: 1.5;
+
     color: #756c79;
 }
 
+
 .page-title {
+
     font-size: clamp(40px, 8vw, 65px);
+
     font-weight: 400;
+
     text-align: center;
 }
 
+
 .page-description {
+
     max-width: 650px;
+
     margin: 15px auto 40px;
+
     text-align: center;
+
     font-size: 20px;
+
     line-height: 1.5;
+
     color: #756c79;
 }
 
@@ -255,53 +459,168 @@ h1 em {
 ===================================================== */
 
 .upload {
+
     display: block;
+
     max-width: 720px;
+
     margin: auto;
+
     padding: 48px 25px;
+
     border-radius: 30px;
+
     border: 1px dashed #c5afd2;
+
     background: rgba(255,255,255,.62);
+
     text-align: center;
+
     cursor: pointer;
+
     transition: .3s;
 }
 
+
 .upload:hover {
+
     background: rgba(255,255,255,.88);
+
     transform: translateY(-2px);
 }
 
+
 .upload-icon {
+
     font-size: 50px;
+
     color: #a98bc8;
 }
 
+
 .upload h2 {
+
     margin-top: 12px;
+
     font-size: 32px;
+
     font-weight: 400;
+
     color: #84669f;
 }
 
+
 .upload p {
+
     margin-top: 8px;
+
     font-size: 18px;
+
     color: #8d8390;
 }
 
+
 .upload input {
+
     display: none;
 }
 
+
 .gallery {
+
     display: inline-block;
+
     margin-top: 25px;
+
     padding-top: 15px;
+
     border-top: 1px solid rgba(150,120,175,.18);
+
     font-size: 16px;
+
     letter-spacing: 3px;
+
     color: #9474af;
+}
+
+
+/* =====================================================
+   IMAGE PREVIEW
+===================================================== */
+
+.preview-box {
+
+    display: none;
+
+    max-width: 720px;
+
+    margin: 25px auto 0;
+
+    padding: 20px;
+
+    border-radius: 25px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    text-align: center;
+}
+
+
+.preview-box.show {
+
+    display: block;
+}
+
+
+.preview-box img {
+
+    width: 100%;
+
+    max-height: 400px;
+
+    object-fit: contain;
+
+    border-radius: 18px;
+}
+
+
+.preview-name {
+
+    margin-top: 12px;
+
+    font-size: 18px;
+
+    color: var(--lavender-dark);
+}
+
+
+.analyse-button {
+
+    margin-top: 18px;
+
+    padding: 12px 28px;
+
+    border-radius: 30px;
+
+    border: 1px solid #b99bd1;
+
+    background: var(--lavender);
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 17px;
+
+    cursor: pointer;
+}
+
+
+.analyse-button:hover {
+
+    background: var(--lavender-dark);
 }
 
 
@@ -310,44 +629,73 @@ h1 em {
 ===================================================== */
 
 .section-title {
+
     text-align: center;
+
     margin: 55px 0 25px;
+
     color: #9878b3;
+
     letter-spacing: 5px;
+
     font-size: 18px;
 }
 
+
 .examples {
+
     display: grid;
+
     grid-template-columns: repeat(4,1fr);
+
     gap: 15px;
 }
 
+
 .example {
+
     min-height: 130px;
+
     padding: 25px 10px;
+
     background: var(--card);
+
     border: 1px solid var(--border);
+
     border-radius: 20px;
+
     text-align: center;
+
     cursor: pointer;
+
     transition: .3s;
 }
 
+
 .example:hover {
+
     transform: translateY(-5px);
+
     border-color: #b99bd1;
 }
 
+
 .example .icon {
+
     font-size: 34px;
+
     color: #a98bc8;
 }
 
+
 .example span {
+
     display: block;
+
     margin-top: 12px;
+
     letter-spacing: 2px;
+
     color: #665b6d;
 }
 
@@ -357,36 +705,59 @@ h1 em {
 ===================================================== */
 
 .recent {
+
     margin-top: 50px;
+
     padding: 25px;
+
     border: 1px solid var(--border);
+
     border-radius: 25px;
+
     background: var(--card);
 }
 
+
 .recent-title {
+
     display: flex;
+
     justify-content: space-between;
+
     color: #8b719e;
+
     letter-spacing: 3px;
+
     margin-bottom: 20px;
+
     font-size: 15px;
 }
 
+
 .recent-title span:last-child {
+
     cursor: pointer;
 }
 
+
 .recent-item {
+
     padding: 15px 0;
+
     border-top: 1px solid rgba(150,120,175,.12);
+
     font-size: 20px;
+
     cursor: pointer;
+
     transition: .2s;
 }
 
+
 .recent-item:hover {
+
     padding-left: 8px;
+
     color: var(--lavender-dark);
 }
 
@@ -396,41 +767,67 @@ h1 em {
 ===================================================== */
 
 .card-grid {
+
     display: grid;
+
     grid-template-columns: repeat(2,1fr);
+
     gap: 20px;
 }
 
+
 .info-card {
+
     background: var(--card);
+
     border: 1px solid var(--border);
+
     border-radius: 24px;
+
     padding: 28px;
+
     cursor: pointer;
+
     transition: .3s;
 }
 
+
 .info-card:hover {
+
     transform: translateY(-4px);
+
     border-color: #b99bd1;
 }
 
+
 .info-card .big-icon {
+
     font-size: 38px;
+
     color: var(--lavender);
+
     margin-bottom: 12px;
 }
 
+
 .info-card h2 {
+
     font-size: 29px;
+
     font-weight: 400;
+
     color: #80639f;
 }
 
+
 .info-card p {
+
     margin-top: 8px;
+
     font-size: 18px;
+
     line-height: 1.45;
+
     color: #766d79;
 }
 
@@ -440,57 +837,97 @@ h1 em {
 ===================================================== */
 
 .result-card {
+
     background: var(--card);
+
     border: 1px solid var(--border);
+
     border-radius: 28px;
+
     padding: 25px;
+
     margin-top: 25px;
 }
 
+
 .result-image {
+
     width: 100%;
+
     max-height: 430px;
+
     object-fit: contain;
+
     border-radius: 20px;
+
     background: #f1ebf2;
+
     display: block;
 }
 
+
 .result-label {
+
     margin-top: 25px;
+
     color: #9878b3;
+
     letter-spacing: 4px;
+
     font-size: 15px;
 }
 
+
 .result-title {
+
     margin-top: 5px;
+
     font-size: 42px;
+
     font-weight: 400;
 }
 
+
 .result-text {
+
     margin-top: 10px;
+
     font-size: 20px;
+
     line-height: 1.5;
+
     color: #756c79;
 }
 
+
 .back-button {
+
     display: block;
+
     margin: 25px auto 0;
+
     padding: 13px 28px;
+
     border-radius: 30px;
+
     border: 1px solid #b99bd1;
+
     background: transparent;
+
     color: #80639f;
+
     font-family: inherit;
+
     font-size: 18px;
+
     cursor: pointer;
 }
 
+
 .back-button:hover {
+
     background: var(--lavender);
+
     color: white;
 }
 
@@ -500,45 +937,75 @@ h1 em {
 ===================================================== */
 
 .timeline {
+
     position: relative;
+
     max-width: 800px;
+
     margin: 50px auto;
+
     padding-left: 30px;
+
     border-left: 1px solid #c7afd4;
 }
 
+
 .timeline-item {
+
     position: relative;
+
     padding: 0 0 45px 30px;
 }
 
+
 .timeline-item::before {
+
     content: "";
+
     position: absolute;
+
     left: -37px;
+
     top: 4px;
+
     width: 13px;
+
     height: 13px;
+
     border-radius: 50%;
+
     border: 2px solid #a98bc8;
+
     background: var(--cream);
 }
 
+
 .timeline-year {
+
     color: #9878b3;
+
     letter-spacing: 3px;
+
     font-size: 16px;
 }
 
+
 .timeline-item h2 {
+
     font-size: 30px;
+
     font-weight: 400;
+
     margin-top: 5px;
 }
 
+
 .timeline-item p {
+
     margin-top: 5px;
+
     font-size: 18px;
+
     color: #756c79;
 }
 
@@ -548,41 +1015,71 @@ h1 em {
 ===================================================== */
 
 .journal-box {
+
     max-width: 750px;
+
     margin: auto;
+
     background: var(--card);
+
     border: 1px solid var(--border);
+
     border-radius: 25px;
+
     padding: 25px;
 }
 
+
 .journal-box textarea {
+
     width: 100%;
+
     min-height: 250px;
+
     border: none;
+
     outline: none;
+
     resize: vertical;
+
     background: transparent;
+
     color: var(--text);
+
     font-family: "Cormorant Garamond", serif;
+
     font-size: 22px;
+
     line-height: 1.5;
 }
 
+
 .save-note {
+
     margin-top: 15px;
+
     padding: 12px 25px;
+
     border: 1px solid #b99bd1;
+
     border-radius: 25px;
+
     background: transparent;
+
     color: #80639f;
+
     font-family: inherit;
+
     font-size: 17px;
+
     cursor: pointer;
 }
 
+
 .save-note:hover {
+
     background: var(--lavender);
+
     color: white;
 }
 
@@ -592,47 +1089,108 @@ h1 em {
 ===================================================== */
 
 .side-menu {
+
     position: fixed;
+
     top: 0;
+
     left: -310px;
+
     width: 290px;
+
     height: 100vh;
+
     background: rgba(251,247,250,.98);
+
     backdrop-filter: blur(20px);
+
     border-right: 1px solid var(--border);
+
     z-index: 100;
+
     padding: 30px;
+
     transition: .35s;
 }
 
+
 .side-menu.open {
+
     left: 0;
 }
 
+
 .menu-close {
+
     text-align: right;
+
     font-size: 28px;
+
     color: #80639f;
+
     cursor: pointer;
 }
 
+
 .menu-logo {
+
     font-size: 48px;
+
     color: #a78bc5;
+
     letter-spacing: -4px;
+
     margin: 30px 0 35px;
 }
 
+
 .menu-link {
+
     padding: 18px 0;
+
     border-bottom: 1px solid rgba(150,120,175,.12);
+
     font-size: 20px;
+
     cursor: pointer;
+
     color: #665b6d;
 }
 
+
 .menu-link:hover {
+
     color: #9b7abb;
+}
+
+
+/* =====================================================
+   OVERLAY
+===================================================== */
+
+.overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(50,40,55,.35);
+
+    backdrop-filter: blur(4px);
+
+    display: none;
+
+    place-items: center;
+
+    z-index: 90;
+
+    padding: 25px;
+}
+
+
+.overlay.open {
+
+    display: grid;
 }
 
 
@@ -640,211 +1198,309 @@ h1 em {
    PROFILE MODAL
 ===================================================== */
 
-.overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(50,40,55,.35);
-    backdrop-filter: blur(4px);
-    display: none;
-    place-items: center;
-    z-index: 90;
-    padding: 25px;
-}
-
-.overlay.open {
-    display: grid;
-}
-
 .profile-modal {
+
     width: min(420px, 100%);
+
     background: #fbf7fa;
+
     border: 1px solid var(--border);
+
     border-radius: 28px;
+
     padding: 35px;
+
     text-align: center;
 }
 
+
 .profile-circle {
+
     width: 75px;
+
     height: 75px;
+
     margin: auto;
+
     border: 1px solid #a98bc8;
+
     border-radius: 50%;
+
     display: grid;
+
     place-items: center;
+
     font-size: 35px;
+
     color: #80639f;
 }
 
+
 .profile-modal h2 {
+
     margin-top: 18px;
+
     font-size: 32px;
+
     font-weight: 400;
 }
 
+
 .profile-modal p {
+
     margin-top: 8px;
+
     font-size: 18px;
+
     color: #8f8794;
 }
 
+
 .modal-close {
+
     margin-top: 25px;
+
     border: 1px solid #b99bd1;
+
     border-radius: 25px;
+
     background: transparent;
+
     padding: 10px 25px;
+
     font-family: inherit;
+
     font-size: 17px;
+
     color: #80639f;
+
     cursor: pointer;
 }
 
 
 /* =====================================================
-   BOTTOM NAV
+   BOTTOM NAVIGATION
 ===================================================== */
 
 .bottom-nav {
+
     position: fixed;
+
     bottom: 0;
+
     left: 0;
+
     right: 0;
+
     height: 82px;
+
     background: rgba(252,247,251,.96);
+
     backdrop-filter: blur(15px);
+
     border-top: 1px solid rgba(150,120,175,.15);
+
     display: flex;
+
     justify-content: space-around;
+
     align-items: center;
+
     z-index: 70;
 }
 
+
 .nav-item {
+
     flex: 1;
+
     text-align: center;
+
     color: #756b79;
+
     font-size: 13px;
+
     cursor: pointer;
+
     transition: .2s;
 }
 
+
 .nav-icon {
+
     font-size: 24px;
+
     display: block;
+
     margin-bottom: 4px;
 }
 
+
 .nav-item.active {
+
     color: #9b7abb;
 }
 
+
 .nav-item:hover {
+
     color: #9b7abb;
 }
 
 
 /* =====================================================
-   RESPONSIVE
+   MOBILE
 ===================================================== */
 
 @media(max-width:700px) {
 
     header {
+
         height: 62px;
+
         padding: 0 20px;
     }
 
+
     .header-logo {
+
         font-size: 32px;
     }
 
+
     .profile {
+
         width: 34px;
+
         height: 34px;
+
         font-size: 17px;
     }
 
+
     .content {
+
         width: 92%;
+
         padding-top: 38px;
     }
 
+
     h1 {
+
         font-size: 45px;
     }
 
+
     .subtitle {
+
         font-size: 17px;
+
         margin-bottom: 32px;
     }
 
+
     .upload {
+
         padding: 40px 15px;
     }
 
+
     .upload h2 {
+
         font-size: 28px;
     }
 
+
     .examples {
+
         grid-template-columns: repeat(2,1fr);
+
         gap: 10px;
     }
 
+
     .example {
+
         min-height: 110px;
+
         padding: 20px 8px;
     }
 
+
     .example .icon {
+
         font-size: 28px;
     }
 
+
     .example span {
+
         font-size: 13px;
+
         letter-spacing: 1.5px;
     }
 
+
     .recent {
+
         padding: 20px;
+
         margin-bottom: 20px;
     }
 
+
     .recent-item {
+
         font-size: 18px;
     }
 
+
     .card-grid {
+
         grid-template-columns: 1fr;
     }
 
+
     .page-title {
+
         font-size: 45px;
     }
 
+
     .page-description {
+
         font-size: 18px;
     }
 
+
     .result-title {
+
         font-size: 34px;
     }
 
+
     .bottom-nav {
+
         height: 70px;
     }
 
+
     .nav-item {
+
         font-size: 10px;
     }
 
+
     .nav-icon {
+
         font-size: 21px;
     }
+
 }
 
 </style>
+
 </head>
 
 
@@ -852,12 +1508,14 @@ h1 em {
 
 
 <!-- =====================================================
-     LANDING SCREEN
+     LANDING
 ===================================================== -->
 
 <section class="landing" id="landing">
 
-    <div class="logo">ISREYA</div>
+    <div class="logo">
+        ISREYA
+    </div>
 
     <div class="tagline">
         SEE WHAT REMAINS...
@@ -883,19 +1541,33 @@ h1 em {
 
 
 <!-- =====================================================
-     MAIN APPLICATION
+     APPLICATION
 ===================================================== -->
 
 <main id="app">
 
 
+<!-- HEADER -->
+
 <header>
 
-    <div class="menu" onclick="openMenu()">☰</div>
+    <div
+        class="menu"
+        onclick="openMenu()"
+        title="Menu">
+        ☰
+    </div>
 
-    <div class="header-logo">ISREYA</div>
+    <div class="header-logo">
+        ISREYA
+    </div>
 
-    <div class="profile" onclick="openProfile()">♙</div>
+    <div
+        class="profile"
+        onclick="openProfile()"
+        title="Profile">
+        ♙
+    </div>
 
 </header>
 
@@ -905,7 +1577,9 @@ h1 em {
      HOME PAGE
 ===================================================== -->
 
-<section class="page active" id="homePage">
+<section
+    class="page active"
+    id="homePage">
 
 <div class="content">
 
@@ -914,12 +1588,16 @@ h1 em {
         <em>looking</em> at?
     </h1>
 
+
     <p class="subtitle">
         Upload an image of an object, place, inscription,
         artwork or anything curious.<br>
         Let ISREYA uncover its story.
     </p>
 
+
+
+    <!-- UPLOAD -->
 
     <label class="upload">
 
@@ -930,11 +1608,17 @@ h1 em {
             onchange="imageSelected(event)"
         >
 
-        <div class="upload-icon">▧</div>
+        <div class="upload-icon">
+            ▧
+        </div>
 
-        <h2>Upload Image</h2>
+        <h2>
+            Upload Image
+        </h2>
 
-        <p>or drag and drop here</p>
+        <p>
+            or drag and drop here
+        </p>
 
         <div class="gallery">
             CHOOSE FROM GALLERY →
@@ -943,6 +1627,35 @@ h1 em {
     </label>
 
 
+
+    <!-- PREVIEW -->
+
+    <div
+        class="preview-box"
+        id="previewBox">
+
+        <img
+            id="previewImage"
+            src=""
+            alt="Selected image">
+
+        <div
+            class="preview-name"
+            id="previewName">
+        </div>
+
+        <button
+            class="analyse-button"
+            onclick="analyseImage()">
+            ANALYSE IMAGE
+        </button>
+
+    </div>
+
+
+
+    <!-- EXAMPLES -->
+
     <div class="section-title">
         — ✦ &nbsp; TRY THESE &nbsp; ✦ —
     </div>
@@ -950,43 +1663,74 @@ h1 em {
 
     <div class="examples">
 
-        <div class="example"
-             onclick="openCategory('Architecture')">
 
-            <div class="icon">⌂</div>
-            <span>ARCHITECTURE</span>
+        <div
+            class="example"
+            onclick="openCategory('Architecture')">
 
-        </div>
+            <div class="icon">
+                ⌂
+            </div>
 
-
-        <div class="example"
-             onclick="openCategory('Inscriptions')">
-
-            <div class="icon">▤</div>
-            <span>INSCRIPTIONS</span>
+            <span>
+                ARCHITECTURE
+            </span>
 
         </div>
 
 
-        <div class="example"
-             onclick="openCategory('Artifacts')">
 
-            <div class="icon">♜</div>
-            <span>ARTIFACTS</span>
+        <div
+            class="example"
+            onclick="openCategory('Inscriptions')">
+
+            <div class="icon">
+                ▤
+            </div>
+
+            <span>
+                INSCRIPTIONS
+            </span>
 
         </div>
 
 
-        <div class="example"
-             onclick="openCategory('Artwork')">
 
-            <div class="icon">◉</div>
-            <span>ARTWORK</span>
+        <div
+            class="example"
+            onclick="openCategory('Artifacts')">
+
+            <div class="icon">
+                ♜
+            </div>
+
+            <span>
+                ARTIFACTS
+            </span>
+
+        </div>
+
+
+
+        <div
+            class="example"
+            onclick="openCategory('Artwork')">
+
+            <div class="icon">
+                ◉
+            </div>
+
+            <span>
+                ARTWORK
+            </span>
 
         </div>
 
     </div>
 
+
+
+    <!-- RECENT -->
 
     <div class="recent">
 
@@ -996,28 +1740,38 @@ h1 em {
                 RECENT SEARCHES
             </span>
 
-            <span onclick="showPage('discoverPage')">
+            <span
+                onclick="showPage('discoverPage')">
                 VIEW ALL →
             </span>
 
         </div>
 
 
-        <div class="recent-item"
-             onclick="showRecent('Ahom Gateway')">
+        <div
+            class="recent-item"
+            onclick="showRecent('Ahom Gateway')">
+
             🏛️ &nbsp; Ahom Gateway
+
         </div>
 
 
-        <div class="recent-item"
-             onclick="showRecent('Copper Ewer')">
+        <div
+            class="recent-item"
+            onclick="showRecent('Copper Ewer')">
+
             🏺 &nbsp; Copper Ewer
+
         </div>
 
 
-        <div class="recent-item"
-             onclick="showRecent('Mural Painting')">
+        <div
+            class="recent-item"
+            onclick="showRecent('Mural Painting')">
+
             🎨 &nbsp; Mural Painting
+
         </div>
 
     </div>
@@ -1029,10 +1783,12 @@ h1 em {
 
 
 <!-- =====================================================
-     DISCOVER PAGE
+     DISCOVER
 ===================================================== -->
 
-<section class="page" id="discoverPage">
+<section
+    class="page"
+    id="discoverPage">
 
 <div class="content">
 
@@ -1049,12 +1805,17 @@ h1 em {
     <div class="card-grid">
 
 
-        <div class="info-card"
-             onclick="openCategory('Architecture')">
+        <div
+            class="info-card"
+            onclick="openCategory('Architecture')">
 
-            <div class="big-icon">⌂</div>
+            <div class="big-icon">
+                ⌂
+            </div>
 
-            <h2>Architecture</h2>
+            <h2>
+                Architecture
+            </h2>
 
             <p>
                 Ancient structures, monuments,
@@ -1064,12 +1825,18 @@ h1 em {
         </div>
 
 
-        <div class="info-card"
-             onclick="openCategory('Inscriptions')">
 
-            <div class="big-icon">▤</div>
+        <div
+            class="info-card"
+            onclick="openCategory('Inscriptions')">
 
-            <h2>Inscriptions</h2>
+            <div class="big-icon">
+                ▤
+            </div>
+
+            <h2>
+                Inscriptions
+            </h2>
 
             <p>
                 Scripts, carvings, languages and
@@ -1079,12 +1846,18 @@ h1 em {
         </div>
 
 
-        <div class="info-card"
-             onclick="openCategory('Artifacts')">
 
-            <div class="big-icon">♜</div>
+        <div
+            class="info-card"
+            onclick="openCategory('Artifacts')">
 
-            <h2>Artifacts</h2>
+            <div class="big-icon">
+                ♜
+            </div>
+
+            <h2>
+                Artifacts
+            </h2>
 
             <p>
                 Objects that reveal how people
@@ -1094,12 +1867,18 @@ h1 em {
         </div>
 
 
-        <div class="info-card"
-             onclick="openCategory('Artwork')">
 
-            <div class="big-icon">◉</div>
+        <div
+            class="info-card"
+            onclick="openCategory('Artwork')">
 
-            <h2>Artwork</h2>
+            <div class="big-icon">
+                ◉
+            </div>
+
+            <h2>
+                Artwork
+            </h2>
 
             <p>
                 Paintings, murals, sculptures
@@ -1117,11 +1896,878 @@ h1 em {
 
 
 <!-- =====================================================
-     SAVED PAGE
+     SAVED
 ===================================================== -->
 
-<section class="page" id="savedPage">
+<section
+    class="page"
+    id="savedPage">
 
 <div class="content">
 
-    <h1 class="page-ti
+    <h1 class="page-title">
+        Saved
+    </h1>
+
+    <p class="page-description">
+        Stories you've chosen to keep close.
+    </p>
+
+
+    <div class="card-grid">
+
+
+        <div
+            class="info-card"
+            onclick="showRecent('Ahom Gateway')">
+
+            <div class="big-icon">
+                🏛️
+            </div>
+
+            <h2>
+                Ahom Gateway
+            </h2>
+
+            <p>
+                Sivasagar, Assam · 17th Century
+            </p>
+
+        </div>
+
+
+
+        <div
+            class="info-card"
+            onclick="showRecent('Copper Ewer')">
+
+            <div class="big-icon">
+                🏺
+            </div>
+
+            <h2>
+                Copper Ewer
+            </h2>
+
+            <p>
+                Historical household artifact
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     TIMELINE
+===================================================== -->
+
+<section
+    class="page"
+    id="timelinePage">
+
+<div class="content">
+
+    <h1 class="page-title">
+        Timeline
+    </h1>
+
+    <p class="page-description">
+        Follow the traces left behind.
+    </p>
+
+
+    <div class="timeline">
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-year">
+                1228
+            </div>
+
+            <h2>
+                Ahom Kingdom Founded
+            </h2>
+
+            <p>
+                The Ahom kingdom begins in Assam.
+            </p>
+
+        </div>
+
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-year">
+                1671
+            </div>
+
+            <h2>
+                Battle of Saraighat
+            </h2>
+
+            <p>
+                A major historical battle fought
+                on the Brahmaputra.
+            </p>
+
+        </div>
+
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-year">
+                1826
+            </div>
+
+            <h2>
+                Treaty of Yandabo
+            </h2>
+
+            <p>
+                A major turning point in the history
+                of Assam and Northeast India.
+            </p>
+
+        </div>
+
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-year">
+                PRESENT
+            </div>
+
+            <h2>
+                What Remains
+            </h2>
+
+            <p>
+                The traces of the past continue
+                to live through objects, places and stories.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     JOURNAL
+===================================================== -->
+
+<section
+    class="page"
+    id="journalPage">
+
+<div class="content">
+
+    <h1 class="page-title">
+        Journal
+    </h1>
+
+    <p class="page-description">
+        Write down what you notice,
+        wonder about or want to remember.
+    </p>
+
+
+    <div class="journal-box">
+
+        <textarea
+            id="journalText"
+            placeholder="Begin writing here..."></textarea>
+
+
+        <button
+            class="save-note"
+            onclick="saveJournal()">
+
+            SAVE NOTE
+
+        </button>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     RESULT PAGE
+===================================================== -->
+
+<section
+    class="page"
+    id="resultPage">
+
+<div class="content">
+
+    <h1 class="page-title">
+        Your Discovery
+    </h1>
+
+
+    <div class="result-card">
+
+        <img
+            id="resultImage"
+            class="result-image"
+            src=""
+            alt="Uploaded image">
+
+
+        <div class="result-label">
+            ISREYA OBSERVATION
+        </div>
+
+
+        <div
+            class="result-title"
+            id="resultTitle">
+
+            Your Image
+
+        </div>
+
+
+        <div
+            class="result-text"
+            id="resultText">
+
+            This is where ISREYA's
+            deeper image analysis will appear.
+
+        </div>
+
+
+        <button
+            class="back-button"
+            onclick="showPage('homePage')">
+
+            ← BACK TO HOME
+
+        </button>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     BOTTOM NAVIGATION
+===================================================== -->
+
+<nav class="bottom-nav">
+
+
+    <div
+        class="nav-item active"
+        data-page="homePage"
+        onclick="showPage('homePage')">
+
+        <span class="nav-icon">
+            ⌂
+        </span>
+
+        HOME
+
+    </div>
+
+
+
+    <div
+        class="nav-item"
+        data-page="discoverPage"
+        onclick="showPage('discoverPage')">
+
+        <span class="nav-icon">
+            ◈
+        </span>
+
+        DISCOVER
+
+    </div>
+
+
+
+    <div
+        class="nav-item"
+        data-page="savedPage"
+        onclick="showPage('savedPage')">
+
+        <span class="nav-icon">
+            ♡
+        </span>
+
+        SAVED
+
+    </div>
+
+
+
+    <div
+        class="nav-item"
+        data-page="timelinePage"
+        onclick="showPage('timelinePage')">
+
+        <span class="nav-icon">
+            ◷
+        </span>
+
+        TIMELINE
+
+    </div>
+
+
+
+    <div
+        class="nav-item"
+        data-page="journalPage"
+        onclick="showPage('journalPage')">
+
+        <span class="nav-icon">
+            ☏
+        </span>
+
+        JOURNAL
+
+    </div>
+
+</nav>
+
+</main>
+
+
+
+<!-- =====================================================
+     SIDE MENU
+===================================================== -->
+
+<div
+    class="side-menu"
+    id="sideMenu">
+
+
+    <div
+        class="menu-close"
+        onclick="closeMenu()">
+
+        ×
+
+    </div>
+
+
+    <div class="menu-logo">
+        ISREYA
+    </div>
+
+
+    <div
+        class="menu-link"
+        onclick="menuNavigate('homePage')">
+
+        Home
+
+    </div>
+
+
+    <div
+        class="menu-link"
+        onclick="menuNavigate('discoverPage')">
+
+        Discover
+
+    </div>
+
+
+    <div
+        class="menu-link"
+        onclick="menuNavigate('savedPage')">
+
+        Saved
+
+    </div>
+
+
+    <div
+        class="menu-link"
+        onclick="menuNavigate('timelinePage')">
+
+        Timeline
+
+    </div>
+
+
+    <div
+        class="menu-link"
+        onclick="menuNavigate('journalPage')">
+
+        Journal
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     PROFILE MODAL
+===================================================== -->
+
+<div
+    class="overlay"
+    id="profileOverlay"
+    onclick="closeProfile(event)">
+
+
+    <div
+        class="profile-modal"
+        onclick="event.stopPropagation()">
+
+
+        <div class="profile-circle">
+            ♙
+        </div>
+
+
+        <h2>
+            ISREYA Explorer
+        </h2>
+
+
+        <p>
+            Keep exploring the traces
+            that time leaves behind.
+        </p>
+
+
+        <button
+            class="modal-close"
+            onclick="closeProfile()">
+
+            CLOSE
+
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   ENTER ISREYA
+===================================================== */
+
+function enterISREYA() {
+
+    document.getElementById("landing").style.display = "none";
+
+    document.getElementById("app").style.display = "block";
+
+    showPage("homePage");
+
+    window.scrollTo(0, 0);
+}
+
+
+
+/* =====================================================
+   PAGE NAVIGATION
+===================================================== */
+
+function showPage(pageId) {
+
+    const pages = document.querySelectorAll(".page");
+
+    pages.forEach(function(page) {
+
+        page.classList.remove("active");
+
+    });
+
+
+    const selectedPage =
+        document.getElementById(pageId);
+
+
+    if (selectedPage) {
+
+        selectedPage.classList.add("active");
+
+    }
+
+
+    /* Update bottom navigation */
+
+    const navItems =
+        document.querySelectorAll(".nav-item");
+
+
+    navItems.forEach(function(item) {
+
+        item.classList.remove("active");
+
+
+        if (item.dataset.page === pageId) {
+
+            item.classList.add("active");
+
+        }
+
+    });
+
+
+    closeMenu();
+
+    window.scrollTo(0, 0);
+}
+
+
+
+/* =====================================================
+   CATEGORY
+===================================================== */
+
+function openCategory(category) {
+
+    const title =
+        document.getElementById("resultTitle");
+
+    const text =
+        document.getElementById("resultText");
+
+
+    title.textContent = category;
+
+
+    if (category === "Architecture") {
+
+        text.textContent =
+            "Explore structures, monuments, gateways and places that carry traces of the people who built them.";
+
+    }
+
+    else if (category === "Inscriptions") {
+
+        text.textContent =
+            "Explore scripts, carvings, languages and messages preserved across stone, metal and other surfaces.";
+
+    }
+
+    else if (category === "Artifacts") {
+
+        text.textContent =
+            "Explore objects from everyday life, ritual, craftsmanship and history.";
+
+    }
+
+    else if (category === "Artwork") {
+
+        text.textContent =
+            "Explore paintings, murals, sculptures and visual traditions from different periods and cultures.";
+
+    }
+
+
+    /* Hide old image */
+
+    const resultImage =
+        document.getElementById("resultImage");
+
+    resultImage.style.display = "none";
+
+
+    showPage("resultPage");
+}
+
+
+
+/* =====================================================
+   RECENT SEARCHES
+===================================================== */
+
+function showRecent(name) {
+
+    const title =
+        document.getElementById("resultTitle");
+
+    const text =
+        document.getElementById("resultText");
+
+
+    title.textContent = name;
+
+
+    if (name === "Ahom Gateway") {
+
+        text.textContent =
+            "A historic gateway associated with the architectural heritage of the Ahom period in Assam.";
+
+    }
+
+    else if (name === "Copper Ewer") {
+
+        text.textContent =
+            "A traditional vessel whose form, material and craftsmanship can reveal details about the culture that produced it.";
+
+    }
+
+    else if (name === "Mural Painting") {
+
+        text.textContent =
+            "A painted surface that can preserve stories, symbols, beliefs and artistic traditions.";
+
+    }
+
+    else {
+
+        text.textContent =
+            "ISREYA will uncover more details about this discovery.";
+
+    }
+
+
+    const resultImage =
+        document.getElementById("resultImage");
+
+    resultImage.style.display = "none";
+
+
+    showPage("resultPage");
+}
+
+
+
+/* =====================================================
+   IMAGE SELECTION
+===================================================== */
+
+function imageSelected(event) {
+
+    const file =
+        event.target.files[0];
+
+
+    if (!file) {
+
+        return;
+
+    }
+
+
+    const previewBox =
+        document.getElementById("previewBox");
+
+
+    const previewImage =
+        document.getElementById("previewImage");
+
+
+    const previewName =
+        document.getElementById("previewName");
+
+
+    const imageURL =
+        URL.createObjectURL(file);
+
+
+    previewImage.src = imageURL;
+
+
+    previewName.textContent =
+        file.name;
+
+
+    previewBox.classList.add("show");
+}
+
+
+
+/* =====================================================
+   IMAGE ANALYSIS
+===================================================== */
+
+function analyseImage() {
+
+    const previewImage =
+        document.getElementById("previewImage");
+
+
+    const resultImage =
+        document.getElementById("resultImage");
+
+
+    const resultTitle =
+        document.getElementById("resultTitle");
+
+
+    const resultText =
+        document.getElementById("resultText");
+
+
+    resultImage.src =
+        previewImage.src;
+
+
+    resultImage.style.display =
+        "block";
+
+
+    resultTitle.textContent =
+        "Image Ready";
+
+
+    resultText.textContent =
+        "Your image has been received by ISREYA. The next stage will connect this interface to an actual image-analysis system so that it can identify objects, places, inscriptions and artwork."
+
+
+    showPage("resultPage");
+}
+
+
+
+/* =====================================================
+   SIDE MENU
+===================================================== */
+
+function openMenu() {
+
+    document
+        .getElementById("sideMenu")
+        .classList.add("open");
+}
+
+
+function closeMenu() {
+
+    document
+        .getElementById("sideMenu")
+        .classList.remove("open");
+}
+
+
+function menuNavigate(pageId) {
+
+    showPage(pageId);
+
+    closeMenu();
+}
+
+
+
+/* =====================================================
+   PROFILE
+===================================================== */
+
+function openProfile() {
+
+    document
+        .getElementById("profileOverlay")
+        .classList.add("open");
+}
+
+
+function closeProfile(event) {
+
+    if (
+        event &&
+        event.target !==
+        document.getElementById("profileOverlay")
+    ) {
+
+        return;
+
+    }
+
+
+    document
+        .getElementById("profileOverlay")
+        .classList.remove("open");
+}
+
+
+
+/* =====================================================
+   JOURNAL
+===================================================== */
+
+function saveJournal() {
+
+    const text =
+        document.getElementById("journalText").value;
+
+
+    if (text.trim() === "") {
+
+        alert("Write something first.");
+
+        return;
+
+    }
+
+
+    localStorage.setItem(
+        "isreyaJournal",
+        text
+    );
+
+
+    alert("Your note has been saved.");
+}
+
+
+
+/* =====================================================
+   LOAD SAVED JOURNAL
+===================================================== */
+
+window.addEventListener("load", function() {
+
+    const saved =
+        localStorage.getItem("isreyaJournal");
+
+
+    if (saved) {
+
+        document.getElementById(
+            "journalText"
+        ).value = saved;
+
+    }
+
+});
+
+
+</script>
+
+</body>
+
+</html>
