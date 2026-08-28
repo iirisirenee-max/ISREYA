@@ -8,6 +8,10 @@
 
 <style>
 
+/* =========================================================
+   ISREYA — COMPLETE CSS
+   ========================================================= */
+
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
 
 :root {
@@ -15,9 +19,9 @@
     --lavender-dark: #80639f;
     --text: #514958;
     --muted: #8f8794;
-    --cream: #faf5f8;
-    --card: rgba(255,255,255,0.58);
-    --border: rgba(150,120,175,0.25);
+    --background: #fbf7fa;
+    --white: rgba(255,255,255,0.72);
+    --border: rgba(150,120,175,0.22);
 }
 
 * {
@@ -26,357 +30,905 @@
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
+    min-height: 100vh;
     background:
-        radial-gradient(circle at 15% 10%, rgba(196,170,220,0.18), transparent 30%),
-        radial-gradient(circle at 90% 80%, rgba(214,190,225,0.16), transparent 30%),
-        #fbf7fa;
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(196,170,220,0.16),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(214,190,225,0.15),
+            transparent 30%
+        ),
+        var(--background);
 
     color: var(--text);
     font-family: "Cormorant Garamond", serif;
 }
 
-/* ---------- LANDING ---------- */
+
+/* =========================================================
+   LANDING PAGE
+   ========================================================= */
 
 .landing {
     min-height: 100vh;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
     text-align: center;
-    padding: 45px 25px;
+
+    padding: 40px 25px;
+
     position: relative;
     overflow: hidden;
 }
 
 .landing::before {
     content: "";
+
     position: absolute;
+
     width: 600px;
     height: 600px;
+
     border-radius: 50%;
-    background: rgba(194,166,220,0.12);
-    filter: blur(80px);
+
+    background: rgba(194,166,220,0.10);
+
+    filter: blur(90px);
+
     top: -250px;
-    left: -200px;
+    left: -220px;
+
+    pointer-events: none;
 }
+
+
+/* LOGO */
 
 .logo {
     font-family: "Cormorant Garamond", serif;
-    font-size: clamp(70px, 18vw, 150px);
+
+    font-size: clamp(72px, 18vw, 150px);
+
     font-weight: 400;
+
     letter-spacing: -7px;
+
     line-height: .8;
+
     color: #a78bc5;
 }
 
+
+/* TAGLINE */
+
 .tagline {
-    margin-top: 18px;
-    font-size: 17px;
-    letter-spacing: 4px;
+    margin-top: 22px;
+
+    font-size: 14px;
+
+    letter-spacing: 5px;
+
     font-style: italic;
+
     color: #625b65;
 }
 
+
+/* DIVIDER */
+
 .divider {
     margin: 55px auto 30px;
+
     width: 130px;
     height: 1px;
+
     background: #cdb9dc;
+
     position: relative;
 }
 
 .divider::after {
     content: "✦";
+
     position: absolute;
+
     left: 50%;
     top: 50%;
+
     transform: translate(-50%, -50%);
-    background: #fbf7fa;
+
+    background: var(--background);
+
     padding: 0 12px;
+
     color: #ad8cc9;
-    font-size: 17px;
+
+    font-size: 16px;
 }
+
+
+/* INTRO */
 
 .intro {
     font-size: clamp(22px, 5vw, 31px);
-    line-height: 1.35;
+
+    line-height: 1.4;
+
     max-width: 550px;
+
     color: #625b65;
 }
 
+
+/* BEGIN BUTTON */
+
 .begin {
     margin-top: 55px;
+
     width: min(390px, 85vw);
+
     height: 65px;
+
     border-radius: 40px;
+
     border: 1px solid #b99bd1;
-    background: rgba(255,255,255,.4);
+
+    background: rgba(255,255,255,.35);
+
     color: #a184bc;
+
     font-family: inherit;
-    font-size: 20px;
+
+    font-size: 18px;
+
     letter-spacing: 7px;
+
     cursor: pointer;
-    transition: .3s;
+
+    transition: .3s ease;
 }
 
 .begin:hover {
     background: #a98bc8;
+
     color: white;
 }
 
+
+/* BOTTOM TAG */
+
 .bottom-tag {
     position: absolute;
-    bottom: 30px;
-    font-size: 18px;
+
+    bottom: 28px;
+
+    font-size: 17px;
+
     font-style: italic;
+
     letter-spacing: 3px;
+
     color: #85758e;
 }
 
-/* ---------- MAIN APP ---------- */
+
+/* =========================================================
+   MAIN APPLICATION
+   ========================================================= */
 
 #app {
     display: none;
+
     min-height: 100vh;
+
     padding-bottom: 95px;
 }
 
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
 header {
-    padding: 22px 25px;
+    height: 75px;
+
+    padding: 0 28px;
+
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
+
     border-bottom: 1px solid rgba(150,120,175,.12);
+
+    background: rgba(251,247,250,.65);
+
+    backdrop-filter: blur(15px);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 10;
 }
 
-.header-logo {
-    font-size: 48px;
-    color: #a78bc5;
-    letter-spacing: -4px;
-}
+
+/* MENU */
 
 .menu {
-    font-size: 27px;
+    font-family: Arial, sans-serif;
+
+    font-size: 25px;
+
     color: #80639f;
+
+    cursor: pointer;
 }
+
+
+/* HEADER LOGO */
+
+.header-logo {
+    font-size: 45px;
+
+    color: #a78bc5;
+
+    letter-spacing: -4px;
+
+    line-height: 1;
+}
+
+
+/* PROFILE */
 
 .profile {
     width: 40px;
     height: 40px;
+
     border: 1px solid #a98bc8;
+
     border-radius: 50%;
+
     display: grid;
+
     place-items: center;
-    font-size: 21px;
+
+    font-size: 20px;
+
+    color: #80639f;
 }
 
-/* ---------- CONTENT ---------- */
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
 
 .content {
     width: min(1000px, 92%);
+
     margin: auto;
-    padding-top: 45px;
+
+    padding-top: 50px;
 }
+
+
+/* MAIN TITLE */
 
 h1 {
     text-align: center;
-    font-size: clamp(40px, 8vw, 70px);
+
+    font-size: clamp(45px, 8vw, 72px);
+
     font-weight: 400;
+
+    line-height: 1.05;
 }
 
 h1 em {
     color: #a98bc8;
 }
 
+
+/* SUBTITLE */
+
 .subtitle {
     text-align: center;
-    margin: 20px auto 40px;
-    font-size: 20px;
-    max-width: 600px;
-    line-height: 1.5;
+
+    margin: 22px auto 42px;
+
+    font-size: 19px;
+
+    max-width: 650px;
+
+    line-height: 1.45;
+
     color: #756c79;
 }
 
-/* ---------- UPLOAD ---------- */
+
+/* =========================================================
+   UPLOAD AREA
+   ========================================================= */
 
 .upload {
+    display: block;
+
     max-width: 720px;
+
+    min-height: 280px;
+
     margin: auto;
-    padding: 55px 25px;
+
+    padding: 45px 25px;
+
     border-radius: 30px;
+
     border: 1px dashed #c5afd2;
-    background: rgba(255,255,255,.55);
+
+    background: rgba(255,255,255,.52);
+
     text-align: center;
+
     cursor: pointer;
-    transition: .3s;
+
+    transition: .3s ease;
 }
 
 .upload:hover {
-    background: rgba(255,255,255,.8);
+    background: rgba(255,255,255,.78);
+
     transform: translateY(-2px);
-}
-
-.upload-icon {
-    font-size: 55px;
-    color: #a98bc8;
-}
-
-.upload h2 {
-    margin-top: 15px;
-    font-size: 32px;
-    font-weight: 400;
-    color: #84669f;
-}
-
-.upload p {
-    margin-top: 8px;
-    font-size: 18px;
-    color: #8d8390;
 }
 
 .upload input {
     display: none;
 }
 
-.gallery {
-    display: inline-block;
-    margin-top: 28px;
-    font-size: 17px;
-    letter-spacing: 3px;
-    color: #9474af;
+
+/* UPLOAD ICON */
+
+.upload-icon {
+    width: 58px;
+    height: 58px;
+
+    margin: 0 auto 15px;
+
+    display: grid;
+
+    place-items: center;
+
+    border: 2px solid #b194c9;
+
+    color: #a98bc8;
+
+    font-size: 27px;
 }
 
-/* ---------- TRY THESE ---------- */
+
+/* UPLOAD TITLE */
+
+.upload h2 {
+    margin-top: 10px;
+
+    font-size: 32px;
+
+    font-weight: 400;
+
+    color: #84669f;
+}
+
+
+/* UPLOAD DESCRIPTION */
+
+.upload p {
+    margin-top: 7px;
+
+    font-size: 17px;
+
+    color: #8d8390;
+}
+
+
+/* GALLERY BUTTON */
+
+.gallery {
+    display: inline-block;
+
+    margin-top: 25px;
+
+    padding: 14px 25px;
+
+    border-top: 1px solid rgba(150,120,175,.18);
+
+    color: #9474af;
+
+    font-size: 16px;
+
+    letter-spacing: 3px;
+}
+
+
+/* =========================================================
+   TRY THESE
+   ========================================================= */
 
 .section-title {
     text-align: center;
-    margin: 55px 0 25px;
+
+    margin: 52px 0 25px;
+
     color: #9878b3;
+
     letter-spacing: 5px;
-    font-size: 18px;
+
+    font-size: 17px;
 }
+
+
+/* EXAMPLE GRID */
 
 .examples {
     display: grid;
+
     grid-template-columns: repeat(4,1fr);
+
     gap: 15px;
 }
 
+
+/* EXAMPLE CARD */
+
 .example {
-    min-height: 130px;
+    min-height: 135px;
+
     padding: 25px 10px;
-    background: var(--card);
+
+    background: rgba(255,255,255,.55);
+
     border: 1px solid var(--border);
+
     border-radius: 20px;
+
     text-align: center;
+
     cursor: pointer;
-    transition: .3s;
+
+    transition: .3s ease;
 }
 
 .example:hover {
     transform: translateY(-5px);
+
+    background: rgba(255,255,255,.8);
 }
 
+
+/* EXAMPLE ICON */
+
 .example .icon {
-    font-size: 34px;
+    font-size: 32px;
+
     color: #a98bc8;
+
+    height: 42px;
 }
+
+
+/* EXAMPLE TEXT */
 
 .example span {
     display: block;
+
     margin-top: 12px;
+
+    font-size: 14px;
+
     letter-spacing: 2px;
+
     color: #665b6d;
 }
 
-/* ---------- RECENT ---------- */
+
+/* =========================================================
+   RECENT SEARCHES
+   ========================================================= */
 
 .recent {
     margin-top: 50px;
+
     padding: 25px;
+
     border: 1px solid var(--border);
+
     border-radius: 25px;
-    background: var(--card);
+
+    background: rgba(255,255,255,.55);
 }
+
+
+/* RECENT HEADER */
 
 .recent-title {
     display: flex;
+
     justify-content: space-between;
+
+    align-items: center;
+
     color: #8b719e;
+
     letter-spacing: 3px;
-    margin-bottom: 20px;
+
+    font-size: 14px;
+
+    margin-bottom: 10px;
 }
+
+
+/* RECENT ITEMS */
 
 .recent-item {
-    padding: 15px 0;
+    padding: 15px 5px;
+
     border-top: 1px solid rgba(150,120,175,.12);
-    font-size: 20px;
+
+    font-size: 19px;
+
+    color: #625a67;
 }
 
-/* ---------- NAV ---------- */
+
+/* =========================================================
+   BOTTOM NAVIGATION
+   ========================================================= */
 
 .bottom-nav {
     position: fixed;
+
     bottom: 0;
+
     left: 0;
     right: 0;
+
     height: 78px;
+
     background: rgba(252,247,251,.95);
+
     backdrop-filter: blur(15px);
+
     border-top: 1px solid rgba(150,120,175,.15);
+
     display: flex;
+
     justify-content: space-around;
+
     align-items: center;
+
     z-index: 20;
 }
 
+
+/* NAV ITEM */
+
 .nav-item {
+    min-width: 60px;
+
     text-align: center;
+
     color: #756b79;
-    font-size: 14px;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition: .25s;
 }
 
+
+/* NAV ICON */
+
 .nav-icon {
-    font-size: 25px;
+    font-family: Arial, sans-serif;
+
+    font-size: 23px;
+
     display: block;
-    margin-bottom: 4px;
+
+    margin-bottom: 5px;
 }
+
+
+/* ACTIVE */
 
 .nav-item.active {
     color: #9b7abb;
 }
 
-/* ---------- RESPONSIVE ---------- */
 
-@media(max-width:700px) {
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 800px) {
 
     .examples {
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .content {
+        width: 90%;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .landing {
+        padding: 30px 20px;
     }
 
     .logo {
-        font-size: 85px;
+        font-size: 84px;
+
+        letter-spacing: -5px;
     }
 
     .tagline {
-        font-size: 14px;
+        font-size: 11px;
+
+        letter-spacing: 4px;
+
+        margin-top: 20px;
     }
+
+    .divider {
+        margin-top: 45px;
+
+        margin-bottom: 25px;
+    }
+
+    .intro {
+        font-size: 23px;
+    }
+
+    .begin {
+        height: 58px;
+
+        margin-top: 45px;
+
+        font-size: 16px;
+
+        letter-spacing: 6px;
+    }
+
+    .bottom-tag {
+        font-size: 14px;
+
+        bottom: 25px;
+    }
+
+
+    /* HEADER */
+
+    header {
+        height: 70px;
+
+        padding: 0 20px;
+    }
+
+    .header-logo {
+        font-size: 34px;
+    }
+
+    .profile {
+        width: 34px;
+        height: 34px;
+
+        font-size: 17px;
+    }
+
+
+    /* CONTENT */
+
+    .content {
+        width: calc(100% - 30px);
+
+        padding-top: 38px;
+    }
+
+    h1 {
+        font-size: 48px;
+
+        line-height: 1.02;
+    }
+
+    .subtitle {
+        font-size: 16px;
+
+        margin: 18px auto 30px;
+
+        line-height: 1.45;
+    }
+
+
+    /* UPLOAD */
+
+    .upload {
+        min-height: 245px;
+
+        padding: 35px 18px;
+
+        border-radius: 25px;
+    }
+
+    .upload-icon {
+        width: 50px;
+        height: 50px;
+
+        font-size: 23px;
+    }
+
+    .upload h2 {
+        font-size: 27px;
+    }
+
+    .upload p {
+        font-size: 15px;
+    }
+
+    .gallery {
+        font-size: 13px;
+
+        letter-spacing: 2px;
+    }
+
+
+    /* TRY THESE */
+
+    .section-title {
+        margin-top: 38px;
+
+        font-size: 14px;
+
+        letter-spacing: 4px;
+    }
+
+    .examples {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 10px;
+    }
+
+    .example {
+        min-height: 105px;
+
+        padding: 18px 8px;
+
+        border-radius: 16px;
+    }
+
+    .example .icon {
+        font-size: 27px;
+    }
+
+    .example span {
+        font-size: 11px;
+
+        letter-spacing: 1.5px;
+
+        margin-top: 8px;
+    }
+
+
+    /* RECENT */
+
+    .recent {
+        margin-top: 30px;
+
+        padding: 18px;
+
+        border-radius: 20px;
+    }
+
+    .recent-title {
+        font-size: 11px;
+
+        letter-spacing: 2px;
+    }
+
+    .recent-item {
+        font-size: 16px;
+
+        padding: 13px 3px;
+    }
+
+
+    /* NAV */
+
+    .bottom-nav {
+        height: 70px;
+    }
+
+    .nav-item {
+        font-size: 9px;
+
+        min-width: 45px;
+    }
+
+    .nav-icon {
+        font-size: 20px;
+
+        margin-bottom: 3px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .logo {
+        font-size: 72px;
+    }
+
+    h1 {
+        font-size: 42px;
+    }
+
+    .subtitle {
+        font-size: 15px;
+    }
+
+    .nav-item {
+        font-size: 8px;
+    }
+
 }
 
 </style>
 </head>
 
+
 <body>
 
-<!-- LANDING SCREEN -->
+
+<!-- =======================================================
+     LANDING PAGE
+     ======================================================= -->
 
 <section class="landing" id="landing">
 
-    <div class="logo">ISREYA</div>
+    <div class="logo">
+        ISREYA
+    </div>
 
-    <div class="tagline">SEE WHAT REMAINS...</div>
+    <div class="tagline">
+        SEE WHAT REMAINS...
+    </div>
 
     <div class="divider"></div>
 
@@ -385,7 +937,10 @@ h1 em {
         Some are almost forgotten.
     </p>
 
-    <button class="begin" onclick="enterISREYA()">
+    <button
+        class="begin"
+        onclick="enterISREYA()"
+    >
         BEGIN
     </button>
 
@@ -396,150 +951,289 @@ h1 em {
 </section>
 
 
-<!-- MAIN APPLICATION -->
+
+<!-- =======================================================
+     MAIN APPLICATION
+     ======================================================= -->
 
 <main id="app">
 
-<header>
 
-    <div class="menu">☰</div>
+    <!-- HEADER -->
 
-    <div class="header-logo">ISREYA</div>
+    <header>
 
-    <div class="profile">♙</div>
-
-</header>
-
-
-<div class="content">
-
-    <h1>
-        What are you<br>
-        <em>looking</em> at?
-    </h1>
-
-    <p class="subtitle">
-        Upload an image of an object, place, inscription,
-        artwork or anything curious.<br>
-        Let ISREYA uncover its story.
-    </p>
-
-
-    <!-- UPLOAD -->
-
-    <label class="upload">
-
-        <input
-            type="file"
-            accept="image/*"
-            onchange="imageSelected(event)"
-        >
-
-        <div class="upload-icon">▧</div>
-
-        <h2>Upload Image</h2>
-
-        <p>or drag and drop here</p>
-
-        <div class="gallery">
-            CHOOSE FROM GALLERY →
+        <div class="menu">
+            ☰
         </div>
 
-    </label>
+        <div class="header-logo">
+            ISREYA
+        </div>
+
+        <div class="profile">
+            ♙
+        </div>
+
+    </header>
 
 
-    <!-- EXAMPLES -->
 
-    <div class="section-title">
-        — ✦ &nbsp; TRY THESE &nbsp; ✦ —
+    <!-- CONTENT -->
+
+    <div class="content">
+
+
+        <!-- TITLE -->
+
+        <h1>
+            What are you<br>
+            <em>looking</em> at?
+        </h1>
+
+
+        <!-- DESCRIPTION -->
+
+        <p class="subtitle">
+            Upload an image of an object, place,
+            inscription, artwork or anything curious.
+            <br>
+            Let ISREYA uncover its story.
+        </p>
+
+
+
+        <!-- =================================================
+             UPLOAD
+             ================================================= -->
+
+        <label class="upload">
+
+            <input
+                type="file"
+                accept="image/*"
+                onchange="imageSelected(event)"
+            >
+
+            <div class="upload-icon">
+                ▧
+            </div>
+
+            <h2>
+                Upload Image
+            </h2>
+
+            <p>
+                or drag and drop here
+            </p>
+
+            <div class="gallery">
+                CHOOSE FROM GALLERY →
+            </div>
+
+        </label>
+
+
+
+        <!-- =================================================
+             TRY THESE
+             ================================================= -->
+
+        <div class="section-title">
+            — ✦ &nbsp; TRY THESE &nbsp; ✦ —
+        </div>
+
+
+        <div class="examples">
+
+
+            <div
+                class="example"
+                onclick="selectExample('Architecture')"
+            >
+
+                <div class="icon">
+                    ⌂
+                </div>
+
+                <span>
+                    ARCHITECTURE
+                </span>
+
+            </div>
+
+
+            <div
+                class="example"
+                onclick="selectExample('Inscriptions')"
+            >
+
+                <div class="icon">
+                    ▤
+                </div>
+
+                <span>
+                    INSCRIPTIONS
+                </span>
+
+            </div>
+
+
+            <div
+                class="example"
+                onclick="selectExample('Artifacts')"
+            >
+
+                <div class="icon">
+                    ♜
+                </div>
+
+                <span>
+                    ARTIFACTS
+                </span>
+
+            </div>
+
+
+            <div
+                class="example"
+                onclick="selectExample('Artwork')"
+            >
+
+                <div class="icon">
+                    ◉
+                </div>
+
+                <span>
+                    ARTWORK
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             RECENT SEARCHES
+             ================================================= -->
+
+        <div class="recent">
+
+
+            <div class="recent-title">
+
+                <span>
+                    RECENT SEARCHES
+                </span>
+
+                <span>
+                    VIEW ALL →
+                </span>
+
+            </div>
+
+
+            <div class="recent-item">
+                🏛️ &nbsp; Ahom Gateway
+            </div>
+
+
+            <div class="recent-item">
+                🏺 &nbsp; Copper Ewer
+            </div>
+
+
+            <div class="recent-item">
+                🎨 &nbsp; Mural Painting
+            </div>
+
+
+        </div>
+
+
     </div>
 
-    <div class="examples">
 
-        <div class="example">
-            <div class="icon">⌂</div>
-            <span>ARCHITECTURE</span>
+
+    <!-- =====================================================
+         BOTTOM NAVIGATION
+         ===================================================== -->
+
+    <nav class="bottom-nav">
+
+
+        <div class="nav-item active">
+
+            <span class="nav-icon">
+                ⌂
+            </span>
+
+            HOME
+
         </div>
 
-        <div class="example">
-            <div class="icon">▤</div>
-            <span>INSCRIPTIONS</span>
+
+        <div class="nav-item">
+
+            <span class="nav-icon">
+                ◈
+            </span>
+
+            DISCOVER
+
         </div>
 
-        <div class="example">
-            <div class="icon">♜</div>
-            <span>ARTIFACTS</span>
+
+        <div class="nav-item">
+
+            <span class="nav-icon">
+                ♡
+            </span>
+
+            SAVED
+
         </div>
 
-        <div class="example">
-            <div class="icon">◉</div>
-            <span>ARTWORK</span>
+
+        <div class="nav-item">
+
+            <span class="nav-icon">
+                ◷
+            </span>
+
+            TIMELINE
+
         </div>
 
-    </div>
 
+        <div class="nav-item">
 
-    <!-- RECENT -->
+            <span class="nav-icon">
+                ☏
+            </span>
 
-    <div class="recent">
+            JOURNAL
 
-        <div class="recent-title">
-            <span>RECENT SEARCHES</span>
-            <span>VIEW ALL →</span>
         </div>
 
-        <div class="recent-item">
-            🏛️ &nbsp; Ahom Gateway
-        </div>
 
-        <div class="recent-item">
-            🏺 &nbsp; Copper Ewer
-        </div>
+    </nav>
 
-        <div class="recent-item">
-            🎨 &nbsp; Mural Painting
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- BOTTOM NAVIGATION -->
-
-<nav class="bottom-nav">
-
-    <div class="nav-item active">
-        <span class="nav-icon">⌂</span>
-        HOME
-    </div>
-
-    <div class="nav-item">
-        <span class="nav-icon">◈</span>
-        DISCOVER
-    </div>
-
-    <div class="nav-item">
-        <span class="nav-icon">♡</span>
-        SAVED
-    </div>
-
-    <div class="nav-item">
-        <span class="nav-icon">◷</span>
-        TIMELINE
-    </div>
-
-    <div class="nav-item">
-        <span class="nav-icon">☏</span>
-        JOURNAL
-    </div>
-
-</nav>
 
 </main>
 
 
+
+<!-- =======================================================
+     JAVASCRIPT
+     ======================================================= -->
+
 <script>
+
+
+/* ENTER ISREYA */
 
 function enterISREYA() {
 
@@ -547,9 +1241,12 @@ function enterISREYA() {
 
     document.getElementById("app").style.display = "block";
 
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
+
 }
 
+
+/* IMAGE SELECTED */
 
 function imageSelected(event) {
 
@@ -560,11 +1257,26 @@ function imageSelected(event) {
     alert(
         "Image selected: " +
         file.name +
-        "\\n\\nISREYA will analyse it here."
+        "\n\nISREYA will analyse it here."
     );
+
 }
+
+
+/* EXAMPLE BUTTONS */
+
+function selectExample(category) {
+
+    alert(
+        category +
+        "\n\nISREYA will show examples here."
+    );
+
+}
+
 
 </script>
 
+
 </body>
-  </html>
+    </html>
