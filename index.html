@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,9 +43,10 @@ body {
     min-height: 100vh;
 }
 
-/* =========================
+
+/* =====================================================
    LANDING
-========================= */
+===================================================== */
 
 .landing {
     min-height: 100vh;
@@ -68,6 +70,7 @@ body {
     filter: blur(80px);
     top: -250px;
     left: -200px;
+    pointer-events: none;
 }
 
 .logo {
@@ -119,8 +122,8 @@ body {
     height: 65px;
     border-radius: 40px;
     border: 1px solid #b99bd1;
-    background: rgba(255,255,255,.4);
-    color: #a184bc;
+    background: var(--lavender);
+    color: white;
     font-family: inherit;
     font-size: 20px;
     letter-spacing: 7px;
@@ -129,8 +132,8 @@ body {
 }
 
 .begin:hover {
-    background: var(--lavender);
-    color: white;
+    background: var(--lavender-dark);
+    transform: translateY(-2px);
 }
 
 .bottom-tag {
@@ -142,9 +145,10 @@ body {
     color: #85758e;
 }
 
-/* =========================
-   APP
-========================= */
+
+/* =====================================================
+   MAIN APP
+===================================================== */
 
 #app {
     display: none;
@@ -159,7 +163,7 @@ header {
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid rgba(150,120,175,.12);
-    background: rgba(251,247,250,.72);
+    background: rgba(251,247,250,.82);
     backdrop-filter: blur(15px);
     position: sticky;
     top: 0;
@@ -191,9 +195,10 @@ header {
     cursor: pointer;
 }
 
-/* =========================
+
+/* =====================================================
    PAGES
-========================= */
+===================================================== */
 
 .page {
     display: none;
@@ -229,9 +234,25 @@ h1 em {
     color: #756c79;
 }
 
-/* =========================
+.page-title {
+    font-size: clamp(40px, 8vw, 65px);
+    font-weight: 400;
+    text-align: center;
+}
+
+.page-description {
+    max-width: 650px;
+    margin: 15px auto 40px;
+    text-align: center;
+    font-size: 20px;
+    line-height: 1.5;
+    color: #756c79;
+}
+
+
+/* =====================================================
    UPLOAD
-========================= */
+===================================================== */
 
 .upload {
     display: block;
@@ -247,7 +268,7 @@ h1 em {
 }
 
 .upload:hover {
-    background: rgba(255,255,255,.85);
+    background: rgba(255,255,255,.88);
     transform: translateY(-2px);
 }
 
@@ -283,9 +304,10 @@ h1 em {
     color: #9474af;
 }
 
-/* =========================
+
+/* =====================================================
    EXAMPLES
-========================= */
+===================================================== */
 
 .section-title {
     text-align: center;
@@ -329,9 +351,10 @@ h1 em {
     color: #665b6d;
 }
 
-/* =========================
+
+/* =====================================================
    RECENT
-========================= */
+===================================================== */
 
 .recent {
     margin-top: 50px;
@@ -367,24 +390,10 @@ h1 em {
     color: var(--lavender-dark);
 }
 
-/* =========================
+
+/* =====================================================
    GENERAL CARDS
-========================= */
-
-.page-title {
-    font-size: clamp(40px, 8vw, 65px);
-    font-weight: 400;
-    text-align: center;
-}
-
-.page-description {
-    max-width: 650px;
-    margin: 15px auto 40px;
-    text-align: center;
-    font-size: 20px;
-    line-height: 1.5;
-    color: #756c79;
-}
+===================================================== */
 
 .card-grid {
     display: grid;
@@ -425,9 +434,10 @@ h1 em {
     color: #766d79;
 }
 
-/* =========================
+
+/* =====================================================
    RESULT
-========================= */
+===================================================== */
 
 .result-card {
     background: var(--card);
@@ -479,9 +489,15 @@ h1 em {
     cursor: pointer;
 }
 
-/* =========================
+.back-button:hover {
+    background: var(--lavender);
+    color: white;
+}
+
+
+/* =====================================================
    TIMELINE
-========================= */
+===================================================== */
 
 .timeline {
     position: relative;
@@ -526,9 +542,10 @@ h1 em {
     color: #756c79;
 }
 
-/* =========================
+
+/* =====================================================
    JOURNAL
-========================= */
+===================================================== */
 
 .journal-box {
     max-width: 750px;
@@ -564,9 +581,15 @@ h1 em {
     cursor: pointer;
 }
 
-/* =========================
+.save-note:hover {
+    background: var(--lavender);
+    color: white;
+}
+
+
+/* =====================================================
    SIDE MENU
-========================= */
+===================================================== */
 
 .side-menu {
     position: fixed;
@@ -574,7 +597,7 @@ h1 em {
     left: -310px;
     width: 290px;
     height: 100vh;
-    background: rgba(251,247,250,.97);
+    background: rgba(251,247,250,.98);
     backdrop-filter: blur(20px);
     border-right: 1px solid var(--border);
     z-index: 100;
@@ -612,9 +635,10 @@ h1 em {
     color: #9b7abb;
 }
 
-/* =========================
+
+/* =====================================================
    PROFILE MODAL
-========================= */
+===================================================== */
 
 .overlay {
     position: fixed;
@@ -676,9 +700,10 @@ h1 em {
     cursor: pointer;
 }
 
-/* =========================
+
+/* =====================================================
    BOTTOM NAV
-========================= */
+===================================================== */
 
 .bottom-nav {
     position: fixed;
@@ -718,9 +743,10 @@ h1 em {
     color: #9b7abb;
 }
 
-/* =========================
+
+/* =====================================================
    RESPONSIVE
-========================= */
+===================================================== */
 
 @media(max-width:700px) {
 
@@ -825,9 +851,9 @@ h1 em {
 <body>
 
 
-<!-- =========================
+<!-- =====================================================
      LANDING SCREEN
-========================= -->
+===================================================== -->
 
 <section class="landing" id="landing">
 
@@ -855,9 +881,10 @@ h1 em {
 </section>
 
 
-<!-- =========================
-     MAIN APP
-========================= -->
+
+<!-- =====================================================
+     MAIN APPLICATION
+===================================================== -->
 
 <main id="app">
 
@@ -873,9 +900,10 @@ h1 em {
 </header>
 
 
-<!-- =========================
+
+<!-- =====================================================
      HOME PAGE
-========================= -->
+===================================================== -->
 
 <section class="page active" id="homePage">
 
@@ -922,24 +950,39 @@ h1 em {
 
     <div class="examples">
 
-        <div class="example" onclick="openCategory('Architecture')">
+        <div class="example"
+             onclick="openCategory('Architecture')">
+
             <div class="icon">⌂</div>
             <span>ARCHITECTURE</span>
+
         </div>
 
-        <div class="example" onclick="openCategory('Inscriptions')">
+
+        <div class="example"
+             onclick="openCategory('Inscriptions')">
+
             <div class="icon">▤</div>
             <span>INSCRIPTIONS</span>
+
         </div>
 
-        <div class="example" onclick="openCategory('Artifacts')">
+
+        <div class="example"
+             onclick="openCategory('Artifacts')">
+
             <div class="icon">♜</div>
             <span>ARTIFACTS</span>
+
         </div>
 
-        <div class="example" onclick="openCategory('Artwork')">
+
+        <div class="example"
+             onclick="openCategory('Artwork')">
+
             <div class="icon">◉</div>
             <span>ARTWORK</span>
+
         </div>
 
     </div>
@@ -965,10 +1008,12 @@ h1 em {
             🏛️ &nbsp; Ahom Gateway
         </div>
 
+
         <div class="recent-item"
              onclick="showRecent('Copper Ewer')">
             🏺 &nbsp; Copper Ewer
         </div>
+
 
         <div class="recent-item"
              onclick="showRecent('Mural Painting')">
@@ -982,9 +1027,10 @@ h1 em {
 </section>
 
 
-<!-- =========================
+
+<!-- =====================================================
      DISCOVER PAGE
-========================= -->
+===================================================== -->
 
 <section class="page" id="discoverPage">
 
@@ -1001,6 +1047,7 @@ h1 em {
 
 
     <div class="card-grid">
+
 
         <div class="info-card"
              onclick="openCategory('Architecture')">
@@ -1068,93 +1115,13 @@ h1 em {
 </section>
 
 
-<!-- =========================
+
+<!-- =====================================================
      SAVED PAGE
-========================= -->
+===================================================== -->
 
 <section class="page" id="savedPage">
 
 <div class="content">
 
-    <h1 class="page-title">
-        Saved
-    </h1>
-
-    <p class="page-description">
-        Stories you've chosen to keep close.
-    </p>
-
-
-    <div class="card-grid">
-
-        <div class="info-card"
-             onclick="showRecent('Ahom Gateway')">
-
-            <div class="big-icon">🏛️</div>
-
-            <h2>Ahom Gateway</h2>
-
-            <p>
-                Sivasagar, Assam · 17th Century
-            </p>
-
-        </div>
-
-
-        <div class="info-card"
-             onclick="showRecent('Copper Ewer')">
-
-            <div class="big-icon">🏺</div>
-
-            <h2>Copper Ewer</h2>
-
-            <p>
-                Historical household artifact
-            </p>
-
-        </div>
-
-    </div>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     TIMELINE PAGE
-========================= -->
-
-<section class="page" id="timelinePage">
-
-<div class="content">
-
-    <h1 class="page-title">
-        Timeline
-    </h1>
-
-    <p class="page-description">
-        Follow the traces left behind.
-    </p>
-
-
-    <div class="timeline">
-
-        <div class="timeline-item">
-
-            <div class="timeline-year">
-                1228
-            </div>
-
-            <h2>Ahom Kingdom Founded</h2>
-
-            <p>
-                The Ahom kingdom begins in Assam.
-            </p>
-
-        </div>
-
-
-        <div class="timeline-item">
-
-            <div class="timeline-year
+    <h1 class="page-ti
