@@ -1,28 +1,570 @@
-<!-- ISREYA DESIGN HERO -->
-<section class="isreya-hero" aria-label="ISREYA">
-  <img
-    src="assets/isreya-design.png"
-    alt="ISREYA — See what remains"
-    class="isreya-design"
-  />
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ISREYA — See What Remains</title>
 
 <style>
-  .isreya-hero {
-    width: 100%;
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+
+:root {
+    --lavender: #a98bc8;
+    --lavender-dark: #80639f;
+    --text: #514958;
+    --muted: #8f8794;
+    --cream: #faf5f8;
+    --card: rgba(255,255,255,0.58);
+    --border: rgba(150,120,175,0.25);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background:
+        radial-gradient(circle at 15% 10%, rgba(196,170,220,0.18), transparent 30%),
+        radial-gradient(circle at 90% 80%, rgba(214,190,225,0.16), transparent 30%),
+        #fbf7fa;
+
+    color: var(--text);
+    font-family: "Cormorant Garamond", serif;
+}
+
+/* ---------- LANDING ---------- */
+
+.landing {
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    padding: 45px 25px;
+    position: relative;
     overflow: hidden;
-    background: #f8f5f7;
-  }
+}
 
-  .isreya-design {
-    width: 100%;
-    max-width: 900px;
-    height: auto;
+.landing::before {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: rgba(194,166,220,0.12);
+    filter: blur(80px);
+    top: -250px;
+    left: -200px;
+}
+
+.logo {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(70px, 18vw, 150px);
+    font-weight: 400;
+    letter-spacing: -7px;
+    line-height: .8;
+    color: #a78bc5;
+}
+
+.tagline {
+    margin-top: 18px;
+    font-size: 17px;
+    letter-spacing: 4px;
+    font-style: italic;
+    color: #625b65;
+}
+
+.divider {
+    margin: 55px auto 30px;
+    width: 130px;
+    height: 1px;
+    background: #cdb9dc;
+    position: relative;
+}
+
+.divider::after {
+    content: "✦";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: #fbf7fa;
+    padding: 0 12px;
+    color: #ad8cc9;
+    font-size: 17px;
+}
+
+.intro {
+    font-size: clamp(22px, 5vw, 31px);
+    line-height: 1.35;
+    max-width: 550px;
+    color: #625b65;
+}
+
+.begin {
+    margin-top: 55px;
+    width: min(390px, 85vw);
+    height: 65px;
+    border-radius: 40px;
+    border: 1px solid #b99bd1;
+    background: rgba(255,255,255,.4);
+    color: #a184bc;
+    font-family: inherit;
+    font-size: 20px;
+    letter-spacing: 7px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.begin:hover {
+    background: #a98bc8;
+    color: white;
+}
+
+.bottom-tag {
+    position: absolute;
+    bottom: 30px;
+    font-size: 18px;
+    font-style: italic;
+    letter-spacing: 3px;
+    color: #85758e;
+}
+
+/* ---------- MAIN APP ---------- */
+
+#app {
+    display: none;
+    min-height: 100vh;
+    padding-bottom: 95px;
+}
+
+header {
+    padding: 22px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(150,120,175,.12);
+}
+
+.header-logo {
+    font-size: 48px;
+    color: #a78bc5;
+    letter-spacing: -4px;
+}
+
+.menu {
+    font-size: 27px;
+    color: #80639f;
+}
+
+.profile {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #a98bc8;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 21px;
+}
+
+/* ---------- CONTENT ---------- */
+
+.content {
+    width: min(1000px, 92%);
+    margin: auto;
+    padding-top: 45px;
+}
+
+h1 {
+    text-align: center;
+    font-size: clamp(40px, 8vw, 70px);
+    font-weight: 400;
+}
+
+h1 em {
+    color: #a98bc8;
+}
+
+.subtitle {
+    text-align: center;
+    margin: 20px auto 40px;
+    font-size: 20px;
+    max-width: 600px;
+    line-height: 1.5;
+    color: #756c79;
+}
+
+/* ---------- UPLOAD ---------- */
+
+.upload {
+    max-width: 720px;
+    margin: auto;
+    padding: 55px 25px;
+    border-radius: 30px;
+    border: 1px dashed #c5afd2;
+    background: rgba(255,255,255,.55);
+    text-align: center;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.upload:hover {
+    background: rgba(255,255,255,.8);
+    transform: translateY(-2px);
+}
+
+.upload-icon {
+    font-size: 55px;
+    color: #a98bc8;
+}
+
+.upload h2 {
+    margin-top: 15px;
+    font-size: 32px;
+    font-weight: 400;
+    color: #84669f;
+}
+
+.upload p {
+    margin-top: 8px;
+    font-size: 18px;
+    color: #8d8390;
+}
+
+.upload input {
+    display: none;
+}
+
+.gallery {
+    display: inline-block;
+    margin-top: 28px;
+    font-size: 17px;
+    letter-spacing: 3px;
+    color: #9474af;
+}
+
+/* ---------- TRY THESE ---------- */
+
+.section-title {
+    text-align: center;
+    margin: 55px 0 25px;
+    color: #9878b3;
+    letter-spacing: 5px;
+    font-size: 18px;
+}
+
+.examples {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 15px;
+}
+
+.example {
+    min-height: 130px;
+    padding: 25px 10px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.example:hover {
+    transform: translateY(-5px);
+}
+
+.example .icon {
+    font-size: 34px;
+    color: #a98bc8;
+}
+
+.example span {
     display: block;
-    object-fit: contain;
-  }
+    margin-top: 12px;
+    letter-spacing: 2px;
+    color: #665b6d;
+}
+
+/* ---------- RECENT ---------- */
+
+.recent {
+    margin-top: 50px;
+    padding: 25px;
+    border: 1px solid var(--border);
+    border-radius: 25px;
+    background: var(--card);
+}
+
+.recent-title {
+    display: flex;
+    justify-content: space-between;
+    color: #8b719e;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.recent-item {
+    padding: 15px 0;
+    border-top: 1px solid rgba(150,120,175,.12);
+    font-size: 20px;
+}
+
+/* ---------- NAV ---------- */
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 78px;
+    background: rgba(252,247,251,.95);
+    backdrop-filter: blur(15px);
+    border-top: 1px solid rgba(150,120,175,.15);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 20;
+}
+
+.nav-item {
+    text-align: center;
+    color: #756b79;
+    font-size: 14px;
+}
+
+.nav-icon {
+    font-size: 25px;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.nav-item.active {
+    color: #9b7abb;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media(max-width:700px) {
+
+    .examples {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .logo {
+        font-size: 85px;
+    }
+
+    .tagline {
+        font-size: 14px;
+    }
+}
+
 </style>
+</head>
+
+<body>
+
+<!-- LANDING SCREEN -->
+
+<section class="landing" id="landing">
+
+    <div class="logo">ISREYA</div>
+
+    <div class="tagline">SEE WHAT REMAINS...</div>
+
+    <div class="divider"></div>
+
+    <p class="intro">
+        Some things are remembered.<br>
+        Some are almost forgotten.
+    </p>
+
+    <button class="begin" onclick="enterISREYA()">
+        BEGIN
+    </button>
+
+    <div class="bottom-tag">
+        ✦ &nbsp; See what remains... &nbsp; ✦
+    </div>
+
+</section>
+
+
+<!-- MAIN APPLICATION -->
+
+<main id="app">
+
+<header>
+
+    <div class="menu">☰</div>
+
+    <div class="header-logo">ISREYA</div>
+
+    <div class="profile">♙</div>
+
+</header>
+
+
+<div class="content">
+
+    <h1>
+        What are you<br>
+        <em>looking</em> at?
+    </h1>
+
+    <p class="subtitle">
+        Upload an image of an object, place, inscription,
+        artwork or anything curious.<br>
+        Let ISREYA uncover its story.
+    </p>
+
+
+    <!-- UPLOAD -->
+
+    <label class="upload">
+
+        <input
+            type="file"
+            accept="image/*"
+            onchange="imageSelected(event)"
+        >
+
+        <div class="upload-icon">▧</div>
+
+        <h2>Upload Image</h2>
+
+        <p>or drag and drop here</p>
+
+        <div class="gallery">
+            CHOOSE FROM GALLERY →
+        </div>
+
+    </label>
+
+
+    <!-- EXAMPLES -->
+
+    <div class="section-title">
+        — ✦ &nbsp; TRY THESE &nbsp; ✦ —
+    </div>
+
+    <div class="examples">
+
+        <div class="example">
+            <div class="icon">⌂</div>
+            <span>ARCHITECTURE</span>
+        </div>
+
+        <div class="example">
+            <div class="icon">▤</div>
+            <span>INSCRIPTIONS</span>
+        </div>
+
+        <div class="example">
+            <div class="icon">♜</div>
+            <span>ARTIFACTS</span>
+        </div>
+
+        <div class="example">
+            <div class="icon">◉</div>
+            <span>ARTWORK</span>
+        </div>
+
+    </div>
+
+
+    <!-- RECENT -->
+
+    <div class="recent">
+
+        <div class="recent-title">
+            <span>RECENT SEARCHES</span>
+            <span>VIEW ALL →</span>
+        </div>
+
+        <div class="recent-item">
+            🏛️ &nbsp; Ahom Gateway
+        </div>
+
+        <div class="recent-item">
+            🏺 &nbsp; Copper Ewer
+        </div>
+
+        <div class="recent-item">
+            🎨 &nbsp; Mural Painting
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- BOTTOM NAVIGATION -->
+
+<nav class="bottom-nav">
+
+    <div class="nav-item active">
+        <span class="nav-icon">⌂</span>
+        HOME
+    </div>
+
+    <div class="nav-item">
+        <span class="nav-icon">◈</span>
+        DISCOVER
+    </div>
+
+    <div class="nav-item">
+        <span class="nav-icon">♡</span>
+        SAVED
+    </div>
+
+    <div class="nav-item">
+        <span class="nav-icon">◷</span>
+        TIMELINE
+    </div>
+
+    <div class="nav-item">
+        <span class="nav-icon">☏</span>
+        JOURNAL
+    </div>
+
+</nav>
+
+</main>
+
+
+<script>
+
+function enterISREYA() {
+
+    document.getElementById("landing").style.display = "none";
+
+    document.getElementById("app").style.display = "block";
+
+    window.scrollTo(0,0);
+}
+
+
+function imageSelected(event) {
+
+    const file = event.target.files[0];
+
+    if (!file) return;
+
+    alert(
+        "Image selected: " +
+        file.name +
+        "\\n\\nISREYA will analyse it here."
+    );
+}
+
+</script>
+
+</body>
+  </html>
